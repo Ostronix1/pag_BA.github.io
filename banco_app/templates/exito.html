@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro Exitoso</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background-image: url("https://media.istockphoto.com/id/1223248918/es/vector/icono-de-donaci%C3%B3n-de-alimentos.jpg?s=612x612&w=0&k=20&c=JUxr_UDMq1yusZGQaJ5clQrrt5D9XABn8jDYE6KCN1o=");
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-width: 80%;
+            width: 400px;
+        }
+
+        h2 {
+            color: #007bff;
+            font-size: 28px;
+            text-transform: uppercase;
+            margin: 20px 0;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Media queries para pantallas más pequeñas */
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+        }
+
+        /* Media queries para pantallas aún más pequeñas, como dispositivos móviles */
+        @media screen and (max-width: 480px) {
+            h2 {
+                font-size: 24px;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registro Exitoso</h2>
+        <p>La asistencia se ha registrado con éxito.</p>
+        <a href="{% url 'inicio_app' %}" class="btn">
+            <i class="fa fa-arrow-left"></i> Volver al Inicio
+        </a>
+    </div>
+</body>
+</html>

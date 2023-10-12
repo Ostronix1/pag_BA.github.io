@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registro de Voluntarios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-image: url("");
+        }
+
+        h2 {
+            color: #da302a;
+            font-size: 35px;
+            text-transform: uppercase;
+            margin: 20px 0 40px 0; /* Ajusta el margen superior y el inferior */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 90vh;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            max-width: 300px;
+            width: 85%;
+        }
+
+        table {
+            width: 90%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid   #464545;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #ee8686;
+        }
+
+        tr:nth-child(even) {
+            background-color: #bdf5ff;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #bdf5ff;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #da302a;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-button i {
+            font-size: 20px;
+        }
+
+        .btn-download {
+            position: fixed;
+            top: 3%;
+            right: 8%;
+            padding: 10px 20px;
+            background-color: #da302a;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn-download:hover {
+            background-color: #da302a;
+        }
+
+        /* Estilos para tabletas y dispositivos más grandes */
+        @media screen and (min-width: 768px) {
+            form {
+                max-width: 600px;
+            }
+        }
+
+        /* Estilos para teléfonos celulares */
+        @media screen and (max-width: 767px) {
+            form {
+                max-width: 100%;
+            }
+            table {
+                max-width: 100%;
+            }
+            th, td {
+                font-size: 10px;
+                padding: 7px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a class="back-button" href="{% url 'inicio_app' %}"><i class="fa fa-arrow-left"></i></a>
+    <div class="container">
+        <table>
+            <h2>Asistencia Registrada</h2> <!-- Encabezado elevado -->
+
+            <thead>
+                <tr>
+                    <th>Cédula</th>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Horas</th>
+                    <th>Kg Derivados</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for asistencia in asistencias %}
+                <tr>
+                    <td>{{ Voluntario.cedula }}</td>
+                    <td>{{ asistencia.nombre }}</td>
+                    <td>{{ asistencia.fecha }}</td>
+                    <td>{{ asistencia.horas }}</td>
+                    <td>{{ asistencia.kg_derivados }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'generar_pdf' %}" class="btn-download">
+            <i class="fa fa-download"></i> Descargar PDF
+        </a>
+    </div>
+</body>
+</html>
